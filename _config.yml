@@ -24,9 +24,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@domain.com
-author: GitHub User
+title: 개발하는 징어군
+email: jiyoung.oh@vanguardlab.net
+author: dev-jiyoung-oh
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -40,21 +40,21 @@ author: GitHub User
 #   "Copyright (c) 2017-{currentYear} <a href="https://example.com">{author}</a>"
 #   "Copyright © 2017-2021 Foobar"
 #
-copyright: "Unpublished Work (cleft) 2017-{currentYear} {author}"
+copyright: "Unpublished Work (cleft) 2017-2022 dev-jiyoung-oh"
 
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: "Hello. This is devloper-jiyoung-oh's tech blog."
+# Write an awesome description for your new site here. You can edit this
+# line in _config.yml. It will appear in your document head meta (for
+# Google search results) and in your feed.xml site description.
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. https://example.com
+baseurl: "https://dev-jiyoung-oh.github.io" # the subpath of your site, e.g. /blog
+url: "/dev-jiyoung-oh" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 yat:
-  date_format: "%b %d, %Y"
+  date_format: "%Y-%m-%d %H:%M"
 
 # If you want more debug log, you can set true
 # debug: false
@@ -155,9 +155,9 @@ yat:
 
 # Page default value
 # defaults:
-#   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
+home: "개발하는 징어군"
+heading: "개발하는 징어군"
+subheading: "개발자 징어군의 기록 블로그입니다."
 #     banner: "Your image url"
 
 # Banner default settings
@@ -168,13 +168,13 @@ yat:
 #   loop: true              # Video loop
 #   volume: 0               # Video volume (100% is 1.0)
 #   start_at: 0             # Video start time
-#   image: null             # Image banner source
+image: null             # Image banner source
 #   opacity: 1.0            # Banner opacity (100% is 1.0)
 #   background: "rgba(0, 0, 0, 0.8)"  # Banner background (Could be a image)
-#   height: "640px"         # Banner default height
+height: "300px"         # Banner default height
 #   min_height: null        # Banner minimum height
-#   heading_style: null     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
-#   subheading_style: null  # Custom subheading style (e.g. color: gold)
+heading_style: "font-size: 30px; font-weight: bold;"     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
+subheading_style: "font-size: 16px;"  # Custom subheading style (e.g. color: gold)
 
 # Excerpt size setting
 # excerpt_size: 350
@@ -188,7 +188,7 @@ yat:
 
 # Gitment comments
 # gitment:
-#   username: "Your GitHub username"
+username: "dev-jiyoung-oh"
 #   repo: "The repo to store comments"
 #   client_id: "Your client ID"
 #   client_secret: "Your client secret"
