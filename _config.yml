@@ -188,7 +188,7 @@ subheading_style: "font-size: 16px;"  # Custom subheading style (e.g. color: gol
 
 # Gitment comments
 # gitment:
-username: "dev-jiyoung-oh"
+#   username: "Your GitHub username"
 #   repo: "The repo to store comments"
 #   client_id: "Your client ID"
 #   client_secret: "Your client secret"
