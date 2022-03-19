@@ -188,7 +188,7 @@ banner:
 # Gitment comments
 gitment:
   username: "dev-jiyoung-oh"
-#   repo: "The repo to store comments"
+  repo: "dev-jiyoung-oh.github.io"
 #   client_id: "Your client ID"
 #   client_secret: "Your client secret"
 #   redirect_uri: "Your redirect url"   # If you use a custom domain name
