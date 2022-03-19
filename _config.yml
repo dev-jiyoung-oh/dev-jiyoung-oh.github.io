@@ -155,7 +155,7 @@ yat:
 
 # Page default value
 # defaults:
-home: "개발하는 징어군"
+# home: "개발하는 징어군"
 heading: "개발하는 징어군"
 subheading: "개발자 징어군의 기록 블로그입니다."
 #     banner: "Your image url"
