@@ -47,8 +47,8 @@ description: "Hello. This is devloper-jiyoung-oh's tech blog."
 # line in _config.yml. It will appear in your document head meta (for
 # Google search results) and in your feed.xml site description.
 
-baseurl: "https://dev-jiyoung-oh.github.io" # the subpath of your site, e.g. /blog
-url: "/dev-jiyoung-oh" # the base hostname & protocol for your site, e.g. https://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. https://example.com
 favicon: "" # the favicon for your site
 
 # Yat date format
@@ -155,7 +155,7 @@ yat:
 
 # Page default value
 # defaults:
-# home: "개발하는 징어군"
+home: "개발하는 징어군"
 heading: "개발하는 징어군"
 subheading: "개발자 징어군의 기록 블로그입니다."
 #     banner: "Your image url"
