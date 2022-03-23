@@ -1,10 +1,13 @@
 ---
 layout: post
-title: "[프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)"
-categories: "알고리즘 문제풀이"
-tags: [algorithm] [programmers] [kakao]
+title: [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
+categories: 알고리즘 문제풀이
+author: 징어군
+tags: algorithm programmers kakao
 ---
-# [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
+
+## [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
+
 ### 문제 설명
 2진 트리 모양 초원의 각 노드에 늑대와 양이 한 마리씩 놓여 있습니다.
 
