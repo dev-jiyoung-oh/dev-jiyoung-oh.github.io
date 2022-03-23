@@ -1,7 +1,7 @@
 ---
 layout: post
-title: [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
-categories: 알고리즘 문제풀이
+title: "[프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)"
+categories: "알고리즘 문제풀이"
 tags: [algorithm] [programmers] [kakao]
 ---
 # [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
