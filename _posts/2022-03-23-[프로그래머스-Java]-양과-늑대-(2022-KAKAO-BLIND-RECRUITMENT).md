@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: 알고리즘 문제풀이
+categories: 알고리즘-문제풀이
 author: 징어군
 tags: algorithm programmers kakao level3
 ---
