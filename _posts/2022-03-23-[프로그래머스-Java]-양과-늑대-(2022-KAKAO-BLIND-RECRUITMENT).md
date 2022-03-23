@@ -40,13 +40,11 @@ tags: algorithm programmers kakao
 따라서 양을 최대 5마리 모을 수 있습니다.
 
 
-<strong>
-각 노드에 있는 양 또는 늑대에 대한 정보가 담긴 배열 info,
-  
-2진 트리의 각 노드들의 연결 관계를 담은 2차원 배열 edges가 매개변수로 주어질 때,
+<strong>각 노드에 있는 양 또는 늑대에 대한 정보가 담긴 배열 info,</strong>
 
-문제에 제시된 조건에 따라 각 노드를 방문하면서 모을 수 있는 양은 최대 몇 마리인지 return 하도록 solution 함수를 완성해주세요.
-</strong>
+<strong>2진 트리의 각 노드들의 연결 관계를 담은 2차원 배열 edges가 매개변수로 주어질 때,</strong>
+
+<strong>문제에 제시된 조건에 따라 각 노드를 방문하면서 모을 수 있는 양은 최대 몇 마리인지 return 하도록 solution 함수를 완성해주세요.</strong>
 
 ### 제한사항
 - 2 ≤ info의 길이 ≤ 17
@@ -77,7 +75,9 @@ tags: algorithm programmers kakao
 <img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/32656ee0-814e-4dd9-93a3-abed1ce31ec1/03_2022_%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8E%E1%85%A2%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6_%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%80%E1%85%AA%E1%84%82%E1%85%B3%E1%86%A8%E1%84%83%E1%85%A2_02.png" width="50%" alt="03_2022_공채문제_양과늑대_02.png"/>
 
 0번 - 2번 - 5번 - 1번 - 4번 - 8번 - 3번 - 7번 노드 순으로 이동하면 양 5마리 늑대 3마리가 됩니다.
+
 여기서 6번, 9번 노드로 이동하면 양 5마리, 늑대 5마리가 되어 양이 모두 잡아먹히게 됩니다.
+
 따라서 늑대에게 잡아먹히지 않도록 하면서 최대로 모을 수 있는 양은 5마리입니다.
 
 ### 제한시간 안내
