@@ -41,9 +41,7 @@ tags: algorithm programmers kakao level3
 
 
 <strong>각 노드에 있는 양 또는 늑대에 대한 정보가 담긴 배열 info,</strong>
-
 <strong>2진 트리의 각 노드들의 연결 관계를 담은 2차원 배열 edges가 매개변수로 주어질 때,</strong>
-
 <strong>문제에 제시된 조건에 따라 각 노드를 방문하면서 모을 수 있는 양은 최대 몇 마리인지 return 하도록 solution 함수를 완성해주세요.</strong>
 
 ### 제한사항
