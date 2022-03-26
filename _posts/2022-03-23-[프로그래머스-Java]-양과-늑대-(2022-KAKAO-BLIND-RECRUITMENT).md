@@ -19,7 +19,7 @@ tags: algorithm programmers kakao level3
 당신은 중간에 양이 늑대에게 잡아먹히지 않도록 하면서 최대한 많은 수의 양을 모아서 다시 루트 노드로 돌아오려 합니다.
 
 
-<img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/ed7118a9-a99b-4f3a-9779-a94816529e78/03_2022_%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8E%E1%85%A2%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6_%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%80%E1%85%AA%E1%84%82%E1%85%B3%E1%86%A8%E1%84%83%E1%85%A2_01.png" width="50%" alt="03_2022_공채문제_양과늑대_01.png"></img>
+<img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/ed7118a9-a99b-4f3a-9779-a94816529e78/03_2022_%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8E%E1%85%A2%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6_%E1%84%8B%E1%85%A3%E1%86%BC%E1%84%80%E1%85%AA%E1%84%82%E1%85%B3%E1%86%A8%E1%84%83%E1%85%A2_01.png" width="50%" alt="03_2022_공채문제_양과늑대_01.png">
 
 예를 들어, 위 그림의 경우(루트 노드에는 항상 양이 있습니다)
 
