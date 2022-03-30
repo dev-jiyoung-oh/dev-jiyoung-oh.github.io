@@ -1,5 +1,5 @@
 ## 개발하는 징어군
-[블로그](https://dev-jiyoung-oh.github.io)를 통해 개발 및 일상을 기록하고 있습니다.
+[본 블로그](https://dev-jiyoung-oh.github.io)를 통해 개발 및 일상을 기록하고 있습니다.
 
 ## Theme License
 
