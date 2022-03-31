@@ -1,0 +1,78 @@
+--
+layout: post
+categories: 프로젝트
+author: 징어군
+tags: project iframe pinch-zoom panzoom
+--
+
+## iframe 확대/축소 구현 (with Panzoom)
+
+급하신 분들은 [문제해결 최종 소스](#문제해결-최종-소스)부분부터 봐주세요.
+주의! 본 내용은 현재 안드로이드에서만 구현이 가능합니다. (CORS 정책으로 인해)
+
+### 서론
+
+#### iframe 확대/축소 기능의 필요성
+하이브리드 모바일 앱을 구축하면서 공지사항을 구현해야 하는데 상세 내용에 웹 페이지를 보여줘야 하는 거라서 iframe을 이용하게 되었다.
+
+상세 내용을 스크롤 없이 iframe 크기에 맞춰 모두 보여주려고 하는데 (iframe크기와 내부요소의 크기 비율을 계산해서 scale을 구해서 iframe 내부 요소에 적용)
+
+상세 내용이 웹을 기준으로 작성되어 있다보니, 표나 사진이 있을 경우 글자 크기가 너무 작아서 확대/축소가 필수적이었다..
+
+#### iframe 내부 확대/축소X. iframe 자체를 확대/축소
+iframe의 내부 요소 자체를 확대/축소하는 방법은 아직 찾지 못했다..
+
+그래서 iframe 내부 요소를 iframe 크기에 딱 맞춰서 scale을 적용하고 iframe 자체를 확대/축소하면 되지 않을까 하고 방법을 찾아봤다.
+
+#### Panzoom과의 만남..그리고 문제점
+iframe 확대/축소를 구글링하니 scale을 이용해서 정적으로 처리하는 방법만 주구장창 나왔는데
+
+그러다가 한줄기 빛처럼 Panzoom을 만났다.
+
+Panzoom 라이브러리는 scale등과 같은 CSS요소를 통해 확대/축소 기능을 구현했다.
+
+[Panzoom Github 주소](https://github.com/timmywil/panzoom) [Panzoom Demo](https://timmywil.com/panzoom/demo/)
+
+Panzoom 깃허브 설명에
+
+```
+Panzoom uses CSS transforms to take advantage of hardware/GPU acceleration in the browser, which means the element can be anything: an image, a video, an iframe, a canvas, text, WHATEVER.
+```
+
+라고 적혀있는데..... 문제는.....
+
+#### 문제 part 1
+다른 애들은 다 되는데 iframe만 확대축소가 불가능하잖아....!!!!!!!!!!!!!
+
+#### 문제 해결 part 1
+iframe의 스크롤 이벤트랑 Panzoom 라이브러리의 핀치 이벤트가 서로 충돌해서 Panzoom의 pinch zoom 기능이 iframe에서는 제대로 동작하지 않는거라고 여겨서
+
+아예 아이프레임의 스크롤 기능이 작동하지 않게 가려버리면 되지 않을까 생각했다.
+
+```html
+<div id="wrap">
+  <div id="layer"></div>
+  <iframe src="링크"/>
+</div>
+```
+이렇게 하고 #wrap에 panzoom 기능을 적용하니까 성공적으로 iframe 확대 축소가 가능했다!!
+
+예~~~ 드디어 성공!!! 하고 기뻐하려는 찰나....
+
+#### 문제 part 2
+**상세 웹페이지에서 링크 이동을 하는 경우가 있다는 것을 알게 되었다...**
+
+그리고 중요한 건 iframe 내부의 링크를 클릭했을 때 
+
+**iframe 내부에서 이동하지 않고 특정 함수를 호출해서 우리 앱 외부의 브라우저(예: 삼성인터넷)에서 해당 페이지가 열리게끔 처리해야 한다는 것이었다.**
+
+#### 문제해결 part 2
+정말 거의 한달간을 이 기능 구현에 대해 걱정하고, 고민하고, 방법을 생각하고, 구글링하다가 (물론 다른 메뉴 먼저 구현하느라 조금 뒷전이기는 했지만...)
+어제와 오늘 딱!!! 해결방안을 찾았다.
+
+~~
+
+#### 문제해결 최종 소스
+
+
+
