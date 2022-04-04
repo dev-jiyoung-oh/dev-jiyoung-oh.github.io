@@ -5,10 +5,10 @@ author: 징어군
 tags: project iframe pinch-zoom panzoom
 --
 
-## (작성중)iframe 확대/축소 구현 (with Panzoom)
+## iframe 확대/축소 구현 (with Panzoom)
 
 급하신 분들은 [문제해결 소스](#문제해결-소스)부분부터 봐주세요.
-주의! 본 내용은 현재 안드로이드에서만 구현이 가능합니다. (CORS 정책으로 인해)
+주의! 본 내용은 현재 안드로이드에서만 구현이 가능합니다... (CORS 정책으로 인해)
 
 ### 서론
 
@@ -22,7 +22,7 @@ tags: project iframe pinch-zoom panzoom
 #### iframe 내부 확대/축소X. iframe 자체를 확대/축소
 iframe의 내부 요소 자체를 확대/축소하는 방법은 아직 찾지 못했다..
 
-그래서 iframe 내부 요소를 iframe 크기에 딱 맞춰서 scale을 적용하고 iframe 자체를 확대/축소하면 되지 않을까 하고 방법을 찾아봤다.
+**그래서 iframe 내부 요소를 iframe 크기에 딱 맞춰서 내부 html에 scale을 적용하고 iframe 자체를 확대/축소하면 되지 않을까 하고 방법을 찾아봤다.**
 
 #### Panzoom과의 만남..그리고 문제점
 iframe 확대/축소를 구글링하니 scale을 이용해서 정적으로 처리하는 방법만 주구장창 나왔는데
@@ -72,10 +72,85 @@ iframe의 스크롤 이벤트랑 Panzoom 라이브러리의 핀치 이벤트가 
 정말 거의 한달간을 이 기능을 어떻게 구현하나 걱정하다가 (물론 다른 메뉴 먼저 구현하느라 정말 '생각'만 하기는 했지만...)
 오늘 딱!!! 해결방안을 찾았다.
 
-참고한 링크 ~~
-~~
+##### 구세주님 좌표 [https://stackoverflow.com/questions/15248970/iframe-prevents-iscroll-scrolling-on-mobile-safari](https://stackoverflow.com/questions/15248970/iframe-prevents-iscroll-scrolling-on-mobile-safari)
+구현방법은 
+
+iframe 위에 div 레이어를 배치하고, 해당 iframe 요소를 탭/클릭하려는 경우 div 레이어에서 클릭한 x, y 좌표를 저장하고 좌표에서 iframe 콘텐츠의 해당 좌표에 대해 클릭 이벤트를 발생시키는 방식!
 
 #### 문제해결 소스
 
+##### HTML:
+```
+<script src="https://unpkg.com/@panzoom/panzoom@4.4.4/dist/panzoom.min.js"></script>
 
+<div id="panzoom_parent">
+  <div id="panzoom">
+    <div id="layer" class="full-size"></div><iframe src="해당링크" onload="iframeCssChange();" style="visibility: hidden; overflow: hidden;"></iframe>
+  </div>
+</div>
+```
+##### CSS:
+```
+#layer {
+  position: absolute;
+  opacity: 0;
+  z-index: 2
+}
+```
+##### JAVASCRIPT:
+```
+// 확대/축소 설정
+Panzoom(document.querySelector('#panzoom'), {
+  minScale: 1,
+  enableTextSelection : true,
+  canvas:true,
+  // contain: 'outside',
+});
 
+// iframe css 변경
+var iframeCssChange = function() {
+  if ($('iframe').contents().find('html')) {
+			var iframeInitHeight = $('iframe').height();
+			var innerHtml = $('iframe').contents().find('html')[0];
+			var innerWidth = innerHtml.scrollWidth;
+			var innerHeight = innerHtml.scrollHeight;
+			var scale = +(Math.floor(($('iframe').width() / innerWidth) + "e+2")  + "e-2"); // 소수점 둘째 자리까지
+			
+			$('iframe').contents().find('html').css({'transform': 'scale(' + scale + ')', 'transform-origin' : '0% 0%', 'width' : innerWidth, 'height' : '0'});
+			
+			if (innerHeight * scale > iframeInitHeight) {
+				$('iframe').height(innerHeight * scale);
+				$('#layer').height(innerHeight * scale);
+			}
+		
+			// iframe 내부 링크 처리
+			$('iframe').contents().find('[href]').each(function(){
+				var href = $(this).attr('href');
+				$(this).attr({
+					'href': 'javascript:void(0);',
+					'data-href': href
+				});
+			}).on("click",function(){
+				M.apps.browser($(this).data("href"));
+			});
+			
+			// iframe 내부로 클릭 이벤트 전달
+			$(document).on("click", "#layer", function(event){
+				var iframe = $('iframe').get(0);
+				var iframeDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
+				
+				// Find click position (coordinates)
+				var x = event.offsetX;
+				var y = event.offsetY;
+				
+				// Trigger click inside iframe
+				var link = iframeDoc.elementFromPoint(x, y);
+				var newEvent = iframeDoc.createEvent('HTMLEvents');
+				newEvent.initEvent('click', true, true);
+				link.dispatchEvent(newEvent);
+			});
+		}
+    
+	  $('iframe').css('visibility', '');
+};
+```
