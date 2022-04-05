@@ -77,9 +77,9 @@ iframe의 스크롤 이벤트랑 Panzoom 라이브러리의 핀치 이벤트가 
 
 iframe 위에 div 레이어를 배치하고, 해당 iframe 요소를 탭/클릭하려는 경우 div 레이어에서 클릭한 x, y 좌표를 저장하고 좌표에서 iframe 콘텐츠의 해당 좌표에 대해 클릭 이벤트를 발생시키는 방식!
 
-#### 문제해결 소스
+### 문제해결 소스
 
-##### HTML:
+#### HTML:
 ```
 <script src="https://unpkg.com/@panzoom/panzoom@4.4.4/dist/panzoom.min.js"></script>
 
@@ -89,22 +89,22 @@ iframe 위에 div 레이어를 배치하고, 해당 iframe 요소를 탭/클릭�
   </div>
 </div>
 ```
-##### CSS:
+#### CSS:
 ```
 #layer {
   position: absolute;
   opacity: 0;
-  z-index: 2
+  z-index: 2;
 }
 ```
-##### JAVASCRIPT:
+#### JAVASCRIPT:
 ```
 // 확대/축소 설정
 Panzoom(document.querySelector('#panzoom'), {
   minScale: 1,
   enableTextSelection : true,
-  canvas:true,
-  // contain: 'outside',
+  canvas: true, // panzoom 기능 적용한 범위 말고 다른 영역을 드래그해서도 이동시킬 수 있다.
+  // contain: 'outside', // 이동 범위를 제한하는 기능인데 제대로 동작을 안해서... 일단 주석처리
 });
 
 // iframe css 변경
@@ -154,3 +154,10 @@ var iframeCssChange = function() {
 	  $('iframe').css('visibility', '');
 };
 ```
+
+### 해결해야할 사항
+1. 이동 범위 제한.
+현재는 화면에서 iframe이 어디로든 움직일 수 있다. 화면에 안보이는 곳까지도...
+2. 크로스 도메인 문제...
+iframe 내부 요소의 너비, 높이를 알아내서 iframe 크기에 맞게 scale을 조절시키는게 이 확대/축소 기능의 관건인데
+크로스 도메인 정책때문에 도메인이 다를 경우 처리가 불가능하다...ㅠㅠ
