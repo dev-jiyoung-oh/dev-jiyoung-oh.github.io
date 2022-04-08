@@ -1,13 +1,13 @@
---
+---
 layout: post
 categories: 프로젝트
 author: 징어군
 tags: project iframe pinch-zoom panzoom
---
+---
 
 ## iframe 확대/축소 구현 (with Panzoom)
 
-주의! 본 내용은 현재 안드로이드에서만 구현이 가능합니다... (CORS 정책으로 인해)
+※ 주의! 크로스 도메인(CORS)에 걸리지 않는 경우만 구현이 가능합니다...!!
 
 ### 문제해결 소스
 
@@ -50,6 +50,7 @@ var iframeCssChange = function() {
 			
 			$('iframe').contents().find('html').css({'transform': 'scale(' + scale + ')', 'transform-origin' : '0% 0%', 'width' : innerWidth, 'height' : '0'});
 			
+      // iframe 내부 영역의 크기와 iframe 크기를 비교해서 내부의 크기를 iframe 크기에 딱 맞게 정적으로 확대/
 			if (innerHeight * scale > iframeInitHeight) {
 				$('iframe').height(innerHeight * scale);
 				$('#layer').height(innerHeight * scale);
@@ -63,7 +64,9 @@ var iframeCssChange = function() {
 					'data-href': href
 				});
 			}).on("click",function(){
-				M.apps.browser($(this).data("href"));
+        // 클릭 시 실행
+				var href = $(this).data("href");
+        // ...
 			});
 			
 			// iframe 내부로 클릭 이벤트 전달
@@ -87,12 +90,12 @@ var iframeCssChange = function() {
 };
 ```
 
-### 해결해야할 사항
-1. 이동 범위 제한.
-현재는 화면에서 iframe이 어디로든 움직일 수 있다. 화면에 안보이는 곳까지도...
+### 아직 해결하지 못한 사항
+1. 이동 범위 제한
+현재는 화면에서 iframe이 어디로든 움직일 수 있다. iframe이 안 보이는 곳으로도 이동 가능...
 2. 크로스 도메인 문제...
-iframe 내부 요소의 너비, 높이를 알아내서 iframe 크기에 맞게 scale을 조절시키는게 이 확대/축소 기능의 관건인데
-크로스 도메인 정책때문에 도메인이 다를 경우 처리가 불가능하다...ㅠㅠ
+iframe 내부 요소의 너비, 높이를 알아내서 iframe 크기에 맞게 scale을 조절시키는게 이 확대/축소 구현의 관건인데
+크로스 도메인 정책때문에 현재 도메인과 iframe 내부에 호출하는 도메인이 다를 경우 처리가 불가능하다...ㅠㅠ
 
 
 ### 기능 구현까지의 서사
@@ -169,7 +172,7 @@ iframe 위에 레이어 div를 배치하고,
 레이어 div에서 감지한 x, y 좌표를 저장하고
 iframe 콘텐츠 내의 해당 좌표에 대해 클릭 이벤트를 발생시키는 방식!
 
-호호 결과물은 [위](#문제해결-소스)와 같다~
+결과물은 [위](#문제해결-소스)와 같다~
 
 아직 해결해야 하는 것들이 많이 있지만...이렇게라도 구현한 것에...나름 만족....!
 
