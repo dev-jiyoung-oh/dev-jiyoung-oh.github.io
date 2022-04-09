@@ -1,9 +1,9 @@
---
+---
 layout: post
 categories: 알고리즘_문제풀이
 author: 징어군
 tags: algorithm programmers kakao level3
---
+---
 
 ## [프로그래머스 Java] 양과 늑대 (2022 KAKAO BLIND RECRUITMENT)
 
