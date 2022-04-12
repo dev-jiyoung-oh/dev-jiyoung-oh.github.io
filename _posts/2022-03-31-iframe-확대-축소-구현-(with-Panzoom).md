@@ -12,7 +12,7 @@ tags: project iframe pinch-zoom panzoom
 ### 문제해결 소스
 
 #### HTML:
-```
+```html
 <script src="https://unpkg.com/@panzoom/panzoom@4.4.4/dist/panzoom.min.js"></script>
 
 <div id="panzoom_parent">
@@ -22,7 +22,7 @@ tags: project iframe pinch-zoom panzoom
 </div>
 ```
 #### CSS:
-```
+```css
 #layer {
   position: absolute;
   opacity: 0;
@@ -30,7 +30,7 @@ tags: project iframe pinch-zoom panzoom
 }
 ```
 #### JAVASCRIPT:
-```
+```javascript
 // 확대/축소 설정
 Panzoom(document.querySelector('#panzoom'), {
   minScale: 1,
@@ -90,7 +90,7 @@ var iframeCssChange = function() {
 };
 ```
 
-### 아직 해결하지 못한 사항
+### 아직 해결하지 못한 사항!!!
 1. 이동 범위 제한
 현재는 화면에서 iframe이 어디로든 움직일 수 있다. iframe이 안 보이는 곳으로도 이동 가능...
 2. 크로스 도메인 문제...
